@@ -1,0 +1,137 @@
+﻿@page
+@model testModel
+@{
+}
+<html lang="zh-CN" class="js svg background-fixed">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>IIS log 收集办法 – 日志收集方式</title>
+
+
+    <link rel="stylesheet" id="dashicons-css" href="./blog/dashicons.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="admin-bar-css" href="./blog/admin-bar.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-block-library-css" href="./blog/style.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="wp-block-library-theme-css" href="./blog/theme.min.css" type="text/css" media="all">
+    <link rel="stylesheet" id="twentyseventeen-style-css" href="./blog/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="twentyseventeen-block-style-css" href="./blog/blocks.css" type="text/css" media="all">
+
+</head>
+
+<body class="post-template-default single single-post postid-7 single-format-standard logged-in admin-bar wp-embed-responsive has-header-image has-sidebar colors-light customize-support">
+    <div id="page" class="site">
+        <a class="skip-link screen-reader-text" href="https://logstep.azurewebsites.net/2020/08/24/iis-log-%e6%94%b6%e9%9b%86%e5%8a%9e%e6%b3%95/#content">跳至内容</a>
+
+        <header id="masthead" class="site-header" role="banner">
+
+            <div class="custom-header" style="margin-bottom: 0px;">
+
+                <div class="custom-header-media">
+                    <div id="wp-custom-header" class="wp-custom-header"><img src="./blog/header.jpg" width="2000" height="1200" alt="日志收集方式"></div>
+                </div>
+                <div class="site-branding" style="margin-bottom: 0px;">
+                    <div class="wrap">
+                        <div class="site-branding-text">
+                            <p class="site-title"><a href="https://logstep.azurewebsites.net/" rel="home">@Model.Header</a></p>
+                        </div><!-- .site-branding-text -->
+                    </div><!-- .wrap -->
+                </div><!-- .site-branding -->
+            </div><!-- .custom-header -->
+
+        </header><!-- #masthead -->
+        <div class="site-content-contain">
+            <div id="content" class="site-content">
+                <div class="wrap">
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main" role="main" style="padding-bottom: 5rem !important;">
+                            <article id="post-7" class="post-7 post type-post status-publish format-standard hentry category-uncategorized">
+                                <header class="entry-header">
+                                    <div class="entry-meta">
+                                        <span class="posted-on">
+                                            <span class="screen-reader-text">发布于</span>
+                                            <a href="https://logstep.azurewebsites.net/2020/08/24/iis-log-%e6%94%b6%e9%9b%86%e5%8a%9e%e6%b3%95/" rel="bookmark">
+                                                <time class="entry-date published updated" datetime="@DateTime.Now">@DateTime.Now</time>
+                                            </a>
+                                        </span>
+                                        <span class="byline">
+                                            由<span class="author vcard"><a class="url fn n" href="https://logstep.azurewebsites.net/author/jambor/">jambor</a></span>
+                                        </span>
+                                    </div><!-- .entry-meta --><h1 class="entry-title">@Model.article.Title</h1>
+                                </header><!-- .entry-header -->
+                                <div class="entry-content">
+                                    @foreach (var item in Model.article.Content)
+                                    {
+                                    <p>@item.index). @item.Description</p>
+                                        if (!string.IsNullOrEmpty(@item.url))
+                                        {
+                                    <figure class="wp-block-image">
+                                        <img src="@item.url" alt="" class="wp-image-8">
+                                    </figure>
+                                        }
+
+                                    }
+                                </div><!-- .entry-content -->
+                                <footer class="entry-footer" style="display:none"><span class="edit-link"><a class="post-edit-link" href="https://logstep.azurewebsites.net/wp-admin/post.php?post=7&amp;action=edit">编辑<span class="screen-reader-text">“IIS log 收集办法”</span></a></span></footer> <!-- .entry-footer -->
+                            </article><!-- #post-7 -->
+
+
+
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+
+                    <aside id="secondary" class="widget-area" role="complementary" aria-label="博客边栏">
+                        <section id="categories-2" class="widget widget_categories">
+                            <h2 class="widget-title">该案例日志收集</h2>		<ul>
+                                @foreach (var item in Model.caseDetail.logTypes){
+                                <li class="cat-item cat-item-1">
+                                    <a href="/blog?caseid=@Model.caseDetail.CaseId&type=@item">@item</a>
+                                </li>
+                        }
+
+                            </ul>
+                        </section>
+                        <section id="search-2" class="widget widget_search" style="display:none">
+
+                            <form role="search" method="get" class="search-form" action="https://logstep.azurewebsites.net/">
+                                <label for="search-form-1">
+                                    <span class="screen-reader-text">搜索：</span>
+                                </label>
+                                <input type="search" id="search-form-1" class="search-field" placeholder="搜索…" value="" name="s">
+                                <button type="submit" class="search-submit"><svg class="icon icon-search" aria-hidden="true" role="img"> <use href="#icon-search" xlink:href="#icon-search"></use> </svg><span class="screen-reader-text">搜索</span></button>
+                            </form>
+                        </section>		<section id="recent-posts-2" class="widget widget_recent_entries">
+                            <h2 class="widget-title">案例描述</h2>		<ul>
+                                <li>
+                                    <a href="">@Model.caseDetail.description</a>
+                                </li>
+                            </ul>
+                        </section>
+              
+                    <section id="archives-2" class="widget widget_archive">
+                            <h2 class="widget-title">案例创建时间</h2>		<ul>
+                                <li><a href="">@Model.caseDetail.createDate</a></li>
+                            </ul>
+                        </section><section id="categories-2" class="widget widget_categories">
+                            <h2 class="widget-title">分类目录</h2>		<ul>
+
+                                <li class="cat-item cat-item-1">
+                                    <a href="">@Model.article.subType</a>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section id="meta-2" class="widget widget_meta" style="display:none">
+                            <h2 class="widget-title">功能</h2>			<ul>
+                                <li><a href="https://logstep.azurewebsites.net/wp-admin/">管理站点</a></li>
+                                <li><a href="https://logstep.azurewebsites.net/wp-login.php?action=logout&amp;_wpnonce=aa42e06442">注销</a></li>
+                                <li><a href="https://logstep.azurewebsites.net/feed/">文章<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                                <li><a href="https://logstep.azurewebsites.net/comments/feed/">评论<abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                                <li><a href="https://cn.wordpress.org/" title="基于WordPress，一个优美、先进的个人信息发布平台。">WordPress.org</a></li>
+                            </ul>
+                        </section>
+                    </aside><!-- #secondary -->
+                </div><!-- .wrap -->
+            </div><!-- #content -->
+        </div><!-- .site-content-contain -->
+    </div><!-- #page -->
+</body>
+</html>

@@ -1,0 +1,11 @@
+[
+  {
+    "caseid": "112121",
+    "logTypes": [ "iislog", "freb" ],
+    "description": "this is a test",
+    "createDate": "2020-08-21"
+
+  }
+]
+
+

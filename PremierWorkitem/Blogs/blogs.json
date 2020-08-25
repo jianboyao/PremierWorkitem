@@ -1,0 +1,79 @@
+[
+  {
+    "subtype": "iislog",
+    "content": [
+      {
+        "index": 1,
+        "description": "日志路径：C:\\inetpub\\logs\\LogFiles",
+        "url": "blog/clip_image002-1024x434.jpg"
+      },
+      {
+        "index": 2,
+        "description": "上述文件夹名字最后一位的数字表示站点的ID，按下图方式查找。例如，出问题的站点是Site01，在下图的ID是7，这时候我们需要上传的文件为C:\\inetpub\\logs\\LogFiles\\W3SVC7",
+        "url": "blog/clip_image004-1024x384.jpg"
+      }
+    ],
+    "title": "IIS log 收集办法"
+
+  },
+  {
+    "subtype": "httperr",
+    "content": [
+      {
+        "index": 1,
+        "description": "提供C:\\Windows\\System32\\LogFiles\\HTTPERR路径下的文件"
+      }
+    ],
+    "title": "Http Error收集方法"
+
+  },
+  {
+    "subtype": "freb",
+    "content": [
+      {
+        "index": 1,
+        "description": "找到有问题的站点"
+      },
+      {
+        "index": 2,
+        "description": "找到“Failed Request Tracing Rules",
+        "url": "blog/freb/step2.jpg"
+      },
+      {
+        "index": 3,
+        "description": "如果第二步中没有找到FREB，请检查并安装Tracing，如下图",
+        "url": "blog/freb/step3.jpg"
+      },
+      {
+        "index": 4,
+        "description": "双击“Failed Request Tracing Rules”，然后点击“Add”",
+        "url": "blog/freb/step4.gif"
+      },
+      {
+        "index": 5,
+        "description": "选择“All Content”然后点击下一步",
+        "url": "blog/freb/step5.jpg"
+      },
+      {
+        "index": 6,
+        "description": "输入“Status Code”该案例为“504”，然后点击下一步",
+        "url": "blog/freb/step6.jpg"
+      },
+      {
+        "index": 7,
+        "description": "按默人选择，点击“Finish”",
+        "url": "blog/freb/step7.jpg"
+      },
+      {
+        "index": 8,
+        "description": "回到站点找到“Failed Request Tracing…”，勾选启用，并记录日志文件夹",
+        "url": "blog/freb/step8.gif"
+      },
+      {
+        "index": 9,
+        "description": "重现问题，上传日志"
+      }
+    ],
+    "title": "Freb 日志收集方法"
+  }
+]
